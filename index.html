@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Continuous Integration Agent by danaketh</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Continuous Integration Agent</h1>
+          <h2>ci, php, continuous integration</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/danaketh/CIA/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/danaketh/CIA/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/danaketh/CIA" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="continuous-integration-agent" class="anchor" href="#continuous-integration-agent"><span class="octicon octicon-link"></span></a>Continuous Integration Agent</h1>
+
+<p>I've tested a lot of CI tools but none of them worked for me. Most of the time they simply lack the necessary
+functionality or are pain to use (or don't work at all).</p>
+
+<p>So, after all this I've decided to make my own CI tool. Well, it has the CI in it's name but that's just to hype
+your expectations. Truth is, CIA is just a tool to run commands and return their results with some fancy stuff.
+Nothing more. All I need is a tool that will run tests, analyze the code and spit out results in a useful way.
+Every single CI tool I've tried failed in this (last one failed on broken distro in Docker).</p>
+
+<p>CIA is built on <a href="http://symfony.com/what-is-symfony">Symfony</a> and Doctrine. Yeah, I'm a bit lazy so instead of writing dozens of SQL queries I'm using entities and all that stuff most hipster kids hate (it's fun because writing plain SQL is more mainstream than using ORM).</p>
+
+<p><strong>Current Build Status</strong></p>
+
+<p>There's nothing to build yet (not for the public to be precise).</p>
+
+<h2>
+<a name="1-what-do-i-need" class="anchor" href="#1-what-do-i-need"><span class="octicon octicon-link"></span></a>1) What do I need?</h2>
+
+<ul>
+<li>PHP 5.3.3+ (that's a guess, I'm using 5.5.12 on dev)</li>
+<li>MySQL 5+ or PostgreSQL 9+</li>
+<li>Nginx (please, <strong>DO NOT</strong> use Apache)</li>
+<li>Git (no, I'm not going to support anything else but you're welcome to add the support yourself)</li>
+<li>Composer</li>
+<li>patience (so at least someone around here has it)</li>
+</ul><h2>
+<a name="2-why-should-i-switch-from-my-current-ci" class="anchor" href="#2-why-should-i-switch-from-my-current-ci"><span class="octicon octicon-link"></span></a>2) Why should I switch from my current CI?</h2>
+
+<p>You should not! If the current one works for you, there's no reason to switch. If you're looking for something that's easy to use, with epic admin and shitload of features, just leave. CIA is not dead simple clickfest app. There's no web interface except for the test results. I don't need such a thing.</p>
+
+<p>You may give it a try if you're looking for a simple tool that will just build your app and give you the results.
+I guess it might be useful in case you're working on some smaller project and want to keep the testing "at home".</p>
+
+<h2>
+<a name="3-so-why-have-you-released-it" class="anchor" href="#3-so-why-have-you-released-it"><span class="octicon octicon-link"></span></a>3) So why have you released it?</h2>
+
+<p>Because I can. And because there might be people crazy enough to actually use it and maybe even fork it and customize
+it in their way.</p>
+
+<h2>
+<a name="4-your-code-is-shit" class="anchor" href="#4-your-code-is-shit"><span class="octicon octicon-link"></span></a>4) Your code is shit!</h2>
+
+<p>I know and I don't care. I keep the nice things for proprietary code because that's the one I'm getting paid for.
+Grow a pair, fork it and make it better or shut up.</p>
+
+<h2>
+<a name="5-your-english-sucks" class="anchor" href="#5-your-english-sucks"><span class="octicon octicon-link"></span></a>5) Your english sucks!</h2>
+
+<p>Might be, I'm not a native speaker. Also after 17 years on the internet, I'm using the simple english as I've learned
+that lot of it's inhabitants are illiterate imbeciles who can't tell the difference between <code>your</code> and <code>you're</code> (I can).</p>
+
+<h2>
+<a name="6-your-arrogant-fuck" class="anchor" href="#6-your-arrogant-fuck"><span class="octicon octicon-link"></span></a>6) Your arrogant fuck!</h2>
+
+<p>I guess you meant <strong>you are</strong>, which is shortened in <strong>you're</strong>. Oh well... But <strong>you're</strong> right. But since you've made
+it this far, here, have a cookie.</p>
+
+<p><img src="http://www.john-james-andersen.com/wp-content/uploads/Chocolate-Chip-Cookie.jpg" alt="Cookie"></p>
+
+<h2>
+<a name="7-theres-no-8" class="anchor" href="#7-theres-no-8"><span class="octicon octicon-link"></span></a>7) There's no 8</h2>
+
+<p>Believe me, I've made this list...</p>
+
+<h2>
+<a name="8-guess-what-i-lied" class="anchor" href="#8-guess-what-i-lied"><span class="octicon octicon-link"></span></a>8) Guess what? I lied!</h2>
+
+<p>Just a small note for those who can't live without the information about used license. Right now, I'm considering MIT or some other licence that promotes freedom (so GPL is pretty much out of the game). I'm releasing my code to the public because I think they might find it useful or point out mistakes and help me fix them. In return, I don't really care if they make money from it, use it in their proprietary applications or use it while testing the software for that drone which is buzzing above our house. If Bilderberg group wants to use it for taking control over the world, be my guest. Just keep my copyright there so I can brag about it to my friends. </p>
+        </section>
+
+        <footer>
+          Continuous Integration Agent is maintained by <a href="https://github.com/danaketh">danaketh</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
