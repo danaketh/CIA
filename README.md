@@ -43,21 +43,39 @@ Because I can. And because there might be people crazy enough to actually use it
 it in their way.
 
 
-4) Your code is shit!
+4) What is so special about it?
+-------------------------------
+
+I don't think there is anything special really. It's just a bit different.
+
+### There's no web interface
+I have no need for that. Yeah, I'm pretty ok with the console so I didn't bother with making anything else than few commands.
+
+### Different look on builds
+Well, I consider build as failed only if there's something wrong with it, like syntax errors or tests won't pass. Bullshit code, dead code, lots of copy&paste code, non-standard code, missing doc... None of those is a reason for me to mark build as failed. Why? Because the code works. Yeah, it smells like a dead whale but it works. So instead of marking build failed, there are the health and smell factors.
+
+#### Health
+Shows how healthy your code is. Have no dead code, almost no missing doc, unit tests on most of the stuff? Cool, you might hit 100% health on your app soon.
+
+#### Smell
+It's a combination of dead code (because dead code smells), not giving a damn about standards, c&p code and other weird stuff. More bullshit in code, more smell you generate. And who would use app that smells?
+
+
+5) Your code is shit!
 ---------------------
 
 I know and I don't care. I keep the nice things for proprietary code because that's the one I'm getting paid for.
 Grow a pair, fork it and make it better or shut up.
 
 
-5) Your english sucks!
+6) Your english sucks!
 ----------------------
 
 Might be, I'm not a native speaker. Also after 17 years on the internet, I'm using the simple english as I've learned
 that lot of it's inhabitants are illiterate imbeciles who can't tell the difference between `your` and `you're` (I can).
 
 
-6) Your arrogant fuck!
+7) Your arrogant fuck!
 ----------------------
 
 I guess you meant **you are**, which is shortened in **you're**. Oh well... But **you're** right. But since you've made
@@ -66,13 +84,13 @@ it this far, here, have a cookie.
 ![Cookie](http://www.john-james-andersen.com/wp-content/uploads/Chocolate-Chip-Cookie.jpg)
 
 
-7) There's no 8
+8) There's no 9
 ---------------
 
 Believe me, I've made this list...
 
 
-8) Guess what? I lied!
+9) Guess what? I lied!
 ----------------------
 
 Just a small note for those who can't live without the information about used license. Right now, I'm considering MIT or some other licence that promotes freedom (so GPL is pretty much out of the game). I'm releasing my code to the public because I think they might find it useful or point out mistakes and help me fix them. In return, I don't really care if they make money from it, use it in their proprietary applications or use it while testing the software for that drone which is buzzing above our house. If Bilderberg group wants to use it for taking control over the world, be my guest. Just keep my copyright there so I can brag about it to my friends. 

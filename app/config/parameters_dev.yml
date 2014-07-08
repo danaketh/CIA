@@ -1,0 +1,9 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 10.0.0.50
+    database_port: '3306'
+    database_name: cia
+    database_user: root
+    database_password: xxx-222
+    locale: en

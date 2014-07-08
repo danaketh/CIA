@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 10.0.0.50
+    database_port: '3306'
+    database_name: symfony_test
+    database_user: symfony
+    database_password: symfony
+    mailer_transport: smtp
+    mailer_host: smtp.zoho.com
+    mailer_user: no-reply@scrion.com
+    mailer_password: 971df34fe5a95676abb3d5bf8062e178
+    locale: en
+    secret: 656d73a1e4c781026e3cbc8cc32630e51

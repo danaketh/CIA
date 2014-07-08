@@ -1,0 +1,23 @@
+danaketh_ci:
+    pattern: /
+    defaults: { _controller: danakethCIBundle:Default:index }
+
+danaketh_ci_webhook:
+    pattern: /webhook/{id}
+    defaults: { _controller: danakethCIBundle:Default:webhook }
+
+danaketh_ci_build:
+    pattern: /build/{project}/{id}
+    defaults: { _controller: danakethCIBundle:Default:build }
+
+danaketh_ci_project:
+    pattern: /project/{project}
+    defaults: { _controller: danakethCIBundle:Default:project }
+
+danaketh_ci_project_status:
+    pattern: /project/{project}/status
+    defaults: { _controller: danakethCIBundle:Default:status }
+
+danaketh_ci_project_health:
+    pattern: /project/{project}/health
+    defaults: { _controller: danakethCIBundle:Default:health }

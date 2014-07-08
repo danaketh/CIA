@@ -1,0 +1,53 @@
+# What to do before the actual build
+setup:
+  sql:
+    - "CREATE DATABASE cia_build_%build.id%"
+    - "USE cia_build_%build.id%"
+  composer:
+    action: "install"
+    timeout: "10m"
+  console:
+    - "doctrine:schema:create"
+
+# Tests to run
+test:
+  lint:
+    directory: "."
+    excludes:
+      - "/bin/"
+      - "/vendor/"
+  phpmd:
+    allowed_warnings: 10
+    directories:
+      - "/src/"
+    rule_set: "app/phpmd.xml"
+  phpcs:
+    standard: "Symfony2"
+    directories:
+      - "/src/"
+  phploc:
+    directories:
+      - "/src/"
+  phpunit:
+    config: "/app/phpunit.xml.dist"
+  pdepend:
+    directories:
+      - "/src/"
+  phpcpd:
+    directories:
+      - "/src/"
+
+# What to do after the build (no matter the results)
+finish:
+  sql:
+    - "DROP DATABASE cia_build_%build.id%"
+
+# What to do on success
+success:
+  mail:
+    - "daniel@tlach.cz"
+
+# What to do on failure
+failure:
+  mail:
+    - "daniel@tlach.cz"

@@ -1,0 +1,32 @@
+{% for d in meta.data %}
+<div>
+    <table class="table table-striped table-hover">
+        <tr class="active">
+            <th>
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                &nbsp;&nbsp;
+                {{ d.file }}
+            </th>
+            <th>Begins at Line</th>
+            <th>Ends at Line</th>
+        </tr>
+        {% for v in d.violations %}
+            {% if v.priority == 1 %}
+                {% set class = 'danger' %}
+            {% elseif v.priority == 2 %}
+                {% set class = 'warning' %}
+            {% elseif v.priority == 3 %}
+                {% set class = 'info' %}
+            {% else %}
+                {% set class = '' %}
+            {% endif %}
+            <tr class="{{ class }}">
+                <td>{{ v.message }}</td>
+                <td>{{ v.beginsAt }}</td>
+                <td>{{ v.endsAt }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if loop.last == false %}<hr>{% endif %}
+</div>
+{% endfor %}

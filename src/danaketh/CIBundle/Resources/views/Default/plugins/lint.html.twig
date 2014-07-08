@@ -1,0 +1,7 @@
+{% for d in meta.data %}
+<div>
+    <h4>{{ d.error }}</h4>
+    <p>in {{ d.file }} on line {{ d.line }}</p>
+    <pre>{% for s in d.source %}<div>{{ s }}</div>{% endfor %}</pre>
+</div>
+{% endfor %}
