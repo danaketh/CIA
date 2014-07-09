@@ -85,7 +85,7 @@ class DefaultController extends Controller
             ));
         $build = $entityManager->getRepository('danakethCIBundle:Build')->findOneBy(array(
                 'project' => $project,
-                'id' => $id
+                'build' => $id
             ));
 
         if ($project === null || $build === null) {
