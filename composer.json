@@ -34,9 +34,9 @@
         "scrutinizer/utils": "dev-master",
         "scrutinizer/php-analyzer": "dev-legacy",
         "sebastian/phpdcd": "*",
-        "jms/php-manipulator": "dev-master","jms/serializer": "0.15.*@dev",
+        "jms/php-manipulator": "dev-master",
+        "jms/serializer": "0.15.*@dev",
         "nikic/php-parser": "1.0.*@dev"
-
     },
     "require-dev": {
     },
