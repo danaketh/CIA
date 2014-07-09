@@ -20,7 +20,9 @@
 
             <h2>Builds</h2>
             {% for b in project.builds %}
-            <div>#{{ b.build }}</div>
+            <div>
+                <a href="/build/{{ project.token }}/{{ b.build }}">#{{ b.build }}</a>
+            </div>
             {% endfor %}
 
         </div>
