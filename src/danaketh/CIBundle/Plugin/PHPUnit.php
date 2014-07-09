@@ -43,9 +43,10 @@ class PHPUnit extends Plugin
         $process->run();
 
         if (!$process->isSuccessful()) {
-            $this->setLog($process->getErrorOutput());
+            $this->setStatus(false);
+            $this->setLog($this->getCommand() . "\n" . $process->getErrorOutput());
         } else {
-            $this->setLog($process->getOutput());
+            $this->setLog($this->getCommand() . "\n" . $process->getOutput());
         }
 
         $report = $this->parseReport();
@@ -136,6 +137,10 @@ class PHPUnit extends Plugin
             'time' => 0,
             'data' => array()
         );
+
+        if (file_exists($this->getTempFilePath() . 'phpunit.log.xml')) {
+            return $return;
+        }
 
         $report = simplexml_load_file($this->getTempFilePath() . 'phpunit.log.xml');
 
