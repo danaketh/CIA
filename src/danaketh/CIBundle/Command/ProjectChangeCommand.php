@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Routing\Exception\InvalidParameterException;
 
 class ProjectChangeCommand extends ContainerAwareCommand
 {
@@ -32,6 +33,10 @@ class ProjectChangeCommand extends ContainerAwareCommand
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
         $id = $input->getArgument('id');
         $project = $entityManager->getRepository('danakethCIBundle:Project')->find($id);
+
+        if ($project === null) {
+            throw new \RuntimeException('Project not found!');
+        }
 
         if ($input->getOption('name')) {
             $name = $input->getOption('name');
@@ -58,14 +63,22 @@ class ProjectChangeCommand extends ContainerAwareCommand
             $project->setBuildConfig(file_get_contents($config));
         }
 
-        $public_key = $input->getOption('public-key');
-        if ($public_key && file_exists($public_key)) {
-            $project->setPublicKey(file_get_contents($public_key));
+        $publicKeyPath = $input->getOption('public-key');
+        if ($publicKeyPath) {
+            if (!file_exists($publicKeyPath)) {
+                throw new InvalidParameterException('File '.$publicKeyPath.' not found');
+            }
+
+            $project->setPublicKey(file_get_contents($publicKeyPath));
         }
 
-        $private_key = $input->getOption('private-key');
-        if ($private_key && file_exists($private_key)) {
-            $project->setPrivateKey(file_get_contents($private_key));
+        $privateKeyPath = $input->getOption('private-key');
+        if ($privateKeyPath) {
+            if (!file_exists($privateKeyPath)) {
+                throw new InvalidParameterException('File '.$privateKeyPath.' not found');
+            }
+
+            $project->setPrivateKey(file_get_contents($privateKeyPath));
         }
 
         $entityManager->persist($project);
