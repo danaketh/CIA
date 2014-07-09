@@ -232,9 +232,8 @@ class BuilderRunCommand extends ContainerAwareCommand
         $log->setFinished(new \DateTime('now'));
         $this->entityManager->persist($log);
         $this->entityManager->flush();
-        $result = $log->getLog();
 
-        if ($result['success'] === false) {
+        if ($log->getStatus() === false) {
             $this->setBuildStatus(Build::FAILED);
             $output->writeln(' <error>ERROR</error>');
             $this->finishBuild($output);
