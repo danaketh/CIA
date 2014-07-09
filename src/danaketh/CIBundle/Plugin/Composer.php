@@ -26,6 +26,7 @@ class Composer extends Plugin
         $this->setCommandAction();
         $this->setCommandNoAnsi();
         $this->setCommandNoInteraction();
+        $this->setCommandPreferSource();
         $this->setCommandWorkingDir();
 
         $process = new Process($this->getCommand());
@@ -68,6 +69,14 @@ class Composer extends Plugin
     protected function setCommandNoInteraction()
     {
         $this->command[] = '--no-interaction';
+    }
+
+    /**
+     * @return void
+     */
+    protected function setCommandPreferSource()
+    {
+        $this->command[] = '--prefer-source';
     }
 
     /**
