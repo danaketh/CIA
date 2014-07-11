@@ -67,8 +67,6 @@ abstract class Plugin
     {
         $this->build = $build;
         $this->entityManager = $em;
-
-        $this->setCommandBinary();
     }
 
     /**
@@ -97,6 +95,8 @@ abstract class Plugin
     public function setConfig(array $config)
     {
         $this->config = $config;
+
+        $this->configOverride();
     }
 
     /**
@@ -163,8 +163,18 @@ abstract class Plugin
     protected function setCommandBinary()
     {
         if (isset($this->config['bin'])) {
-            $this->command[0] = $this->config['bin'];
+            $this->command = array(
+                $this->config['bin']
+            );
         }
+    }
+
+    /**
+     * @return void
+     */
+    protected function configOverride()
+    {
+        $this->setCommandBinary();
     }
 
     /**
@@ -222,5 +232,20 @@ abstract class Plugin
         );
 
         return str_replace($search, $replace, $string);
+    }
+
+    /**
+     * Remove all traces of the absolute path and leave only the /build/... part
+     *
+     * @param $output
+     *
+     * @return mixed
+     */
+    protected function sanitizeOutput($output)
+    {
+        $search = '';
+        $replace = '';
+
+        return str_replace($search, $replace, $output);
     }
 }
