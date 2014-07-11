@@ -17,7 +17,7 @@ abstract class Plugin
     /**
      * @var array
      */
-    protected $command;
+    protected $command = array();
 
     /**
      * @var array
@@ -67,6 +67,8 @@ abstract class Plugin
     {
         $this->build = $build;
         $this->entityManager = $em;
+
+        $this->setCommandBinary();
     }
 
     /**
@@ -86,7 +88,7 @@ abstract class Plugin
      */
     protected function getCommand()
     {
-        return implode(' ', $this->command);
+        return $this->replaceParameters( implode(' ', $this->command) );
     }
 
     /**
@@ -154,6 +156,18 @@ abstract class Plugin
     }
 
     /**
+     * Allows default binary override from config
+     *
+     * @return void
+     */
+    protected function setCommandBinary()
+    {
+        if (isset($this->config['bin'])) {
+            $this->command[0] = $this->config['bin'];
+        }
+    }
+
+    /**
      * @return integer
      */
     protected function getTimeout()
@@ -188,5 +202,25 @@ abstract class Plugin
         $this->meta->setMetaValue($value);
         $this->entityManager->persist($this->meta);
         $this->entityManager->flush();
+    }
+
+    /**
+     * @param $string
+     *
+     * @return mixed
+     */
+    protected function replaceParameters($string)
+    {
+        $search = array(
+            '%build.id%',
+            '%build.path%'
+        );
+
+        $replace = array(
+            $this->build->getId(),
+            $this->buildPath
+        );
+
+        return str_replace($search, $replace, $string);
     }
 }
