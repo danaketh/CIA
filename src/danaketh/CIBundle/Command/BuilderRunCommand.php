@@ -416,6 +416,6 @@ class BuilderRunCommand extends ContainerAwareCommand
 
         $this->runPlugins($output);
 
-        //$this->finishBuild($output);
+        $this->finishBuild($output);
     }
 }
