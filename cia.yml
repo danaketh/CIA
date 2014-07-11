@@ -29,6 +29,7 @@ test:
     directories:
       - "/src/"
   phpunit:
+    bin: "%build.path%/app/phpunit"
     config: "/app/phpunit.xml.dist"
   pdepend:
     directories:
