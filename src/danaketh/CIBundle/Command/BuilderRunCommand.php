@@ -314,6 +314,10 @@ class BuilderRunCommand extends ContainerAwareCommand
     {
         $output->writeln('Running setup commands...');
 
+        if (!isset($this->projectConfig['setup'])) {
+            return;
+        }
+
         foreach ($this->projectConfig['setup'] as $cmd => $config) {
             if (isset($this->plugins[$cmd])) {
                 $plugin = $this->plugins[$cmd];
