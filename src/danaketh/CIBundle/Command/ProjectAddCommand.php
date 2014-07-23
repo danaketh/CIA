@@ -21,6 +21,7 @@ class ProjectAddCommand extends ContainerAwareCommand
             ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'Valid reference/path to the repository')
             ->addOption('bitbucket', null, InputOption::VALUE_OPTIONAL, 'Set the project repository type to BitBucket')
             ->addOption('github', null, InputOption::VALUE_OPTIONAL, 'Set the project repository type to GitHub')
+            ->addOption('remote', null, InputOption::VALUE_OPTIONAL, 'Set the project repository type to remote')
             ->addOption('config', null, InputOption::VALUE_OPTIONAL, 'Path to the file with build config to import')
             ->addOption('private-key', null, InputOption::VALUE_OPTIONAL, 'Path to the file with private key to import')
             ->addOption('public-key', null, InputOption::VALUE_OPTIONAL, 'Path to the file with public key to import');
@@ -45,8 +46,10 @@ class ProjectAddCommand extends ContainerAwareCommand
             $project->setType('bitbucket');
         } else if ($input->getOption('github') == true) {
             $project->setType('github');
+        } else if ($input->getOption('remote') == true) {
+            $project->setType('remote');
         } else {
-            $project->setType('git');
+            $project->setType('local');
         }
 
         if ($config && file_exists($config)) {
