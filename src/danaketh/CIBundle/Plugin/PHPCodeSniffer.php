@@ -37,6 +37,7 @@ class PHPCodeSniffer extends Plugin
         $this->setCommandDirectories();
 
         $process = new Process($this->getCommand());
+        $process->setTimeout($this->getTimeout());
         $process->run();
 
         if (!$process->isSuccessful()) {
