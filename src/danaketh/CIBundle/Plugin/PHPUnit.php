@@ -66,7 +66,7 @@ class PHPUnit extends Plugin
      */
     protected function setCommandCoverage()
     {
-        $this->command[] = '--coverage-xml ' . $this->getTempFilePath() . 'coverage';
+        $this->command[] = '--coverage-clover ' . $this->getTempFilePath() . 'phpunit.coverage.xml';
     }
 
     /**
