@@ -8,7 +8,11 @@ danaketh_ci_webhook:
 
 danaketh_ci_build:
     pattern: /build/{project}/{id}
-    defaults: { _controller: danakethCIBundle:Default:build }
+    defaults: { _controller: danakethCIBundle:Build:summary }
+
+danaketh_ci_build_detail:
+    pattern: /build/{project}/{id}/{plugin}
+    defaults: { _controller: danakethCIBundle:Build:detail }
 
 danaketh_ci_project:
     pattern: /project/{project}
