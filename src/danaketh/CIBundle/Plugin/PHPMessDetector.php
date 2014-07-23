@@ -32,6 +32,7 @@ class PHPMessDetector extends Plugin
         $this->setCommandReportFile();
 
         $process = new Process($this->getCommand());
+        $process->setTimeout($this->getTimeout());
         $process->run();
 
         if (!$process->isSuccessful()) {
