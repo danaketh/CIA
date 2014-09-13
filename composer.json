@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "danaketh/CIA",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "Continuous Integration Agent",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -36,7 +36,8 @@
         "sebastian/phpdcd": "*",
         "jms/php-manipulator": "dev-master",
         "jms/serializer": "0.15.*@dev",
-        "nikic/php-parser": "1.0.*@dev"
+        "nikic/php-parser": "1.0.*@dev",
+        "phing/phing": "2.*"
     },
     "require-dev": {
     },
